@@ -1,8 +1,10 @@
 # example
-This repository is for practising the GitHub Flow
+## Пример моего кода на JavaScript
 
 
 ```javascript
+
+/** Собирает список уникальных пользователей из всех файлов на диске */
 function getUsers_TRIGGER() {
 
   var start = Date.now();
@@ -63,5 +65,35 @@ function getUsers_TRIGGER() {
     sheet_users.getRange( 'C3:C' + index ).insertCheckboxes();
 
   }
+}
+
+
+
+function processFiles( files, uniques, processed_count, start ) {
+
+  // собираем уникальные емейлы пользователей
+  while ( files.hasNext() ) {
+
+    var file = files.next();
+
+    // cобираем емейлы пользователей
+    var users = [                                                           // regex меняет Имя и Фамилию местами
+      ...file.getEditors().map( e => [ e.getEmail().toLowerCase(), e.getName().replace( /(.*)\s([^\s]*)$/, '$2 $1' ) ] ),
+      ...file.getViewers().map( e => [ e.getEmail().toLowerCase(), e.getName().replace( /(.*)\s([^\s]*)$/, '$2 $1' ) ] )
+    ];
+
+    // на всякий логаем файлы, в которых есть удалённые пользователи ( их акки удалил сам гугл )
+    if ( users.some( e => !e[0] ) )
+      SpreadsheetApp.getActive().getSheetByName( STR.sheet_name_log )
+        .appendRow( [ 'Account deleted', 'Account deleted', 'WARN', file.getUrl(), 'Пользователь не существует' ] );
+    
+    // users = [ [ thomasanderson@gmail, Anderson Thomas ], ... ]
+    users.forEach( user => { if ( !uniques[ user[0] ] ) uniques[ user[0] ] = user[1] } );
+    
+    processed_count += 1;
+    if ( Date.now() - start >= CFG.script_max_time ) break;
+  }
+
+  return { files : files, uniques : uniques, processed_count : processed_count };
 }
 ```
