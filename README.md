@@ -80,7 +80,7 @@ function processFiles( files, uniques, processed_count, start ) {
       ...file.getViewers().map( e => [ e.getEmail().toLowerCase(), e.getName().replace( /(.*)\s([^\s]*)$/, '$2 $1' ) ] )
     ];
 
-    // на всякий логаем файлы, в которых есть удалённые пользователи ( их акки удалил сам гугл )
+    // на всякий логаем файлы, в которых есть удалённые пользователи (их акки удалил сам гугл)
     if ( users.some( e => !e[0] ) )
       SpreadsheetApp.getActive().getSheetByName( STR.sheet_name_log )
         .appendRow( [ 'Account deleted', 'Account deleted', 'WARN', file.getUrl(), 'Пользователь не существует' ] );
