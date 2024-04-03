@@ -1,7 +1,13 @@
 
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+
 
 /** Собирает список уникальных пользователей из всех файлов на диске */
-```javascript
+
 function getUsers_TRIGGER() {
 
   var start = Date.now();
@@ -63,7 +69,7 @@ function getUsers_TRIGGER() {
 
   }
 }
-```
+
 
 
 function processFiles( files, uniques, processed_count, start ) {
@@ -95,4 +101,4 @@ function processFiles( files, uniques, processed_count, start ) {
 }
 
 
-```
+
