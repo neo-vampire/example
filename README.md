@@ -85,7 +85,7 @@ function processFiles( files, uniques, processed_count, start ) {
       SpreadsheetApp.getActive().getSheetByName( STR.sheet_name_log )
         .appendRow( [ 'Account deleted', 'Account deleted', 'WARN', file.getUrl(), 'Пользователь не существует' ] );
     
-    // users = [ [ thomasanderson@gmail, Anderson Thomas ], ... ]
+    // users = [ [ thomasanderson@gmail.com, Anderson Thomas ], ... ]
     users.forEach( user => { if ( !uniques[ user[0] ] ) uniques[ user[0] ] = user[1] } );
     
     processed_count += 1;
