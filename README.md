@@ -1,6 +1,4 @@
-# example
-## Пример моего кода на JavaScript
-
+# Пример моего кода на JavaScript
 
 ```javascript
 
