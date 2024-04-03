@@ -1,13 +1,5 @@
 
-```
-function test() {
-  console.log("notice the blank line before this function?");
-}
-```
-
-
 /** Собирает список уникальных пользователей из всех файлов на диске */
-
 function getUsers_TRIGGER() {
 
   var start = Date.now();
