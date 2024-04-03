@@ -1,4 +1,4 @@
-# Пример моего кода на JavaScript
+# Пример кода на JavaScript
 
 ```javascript
 
