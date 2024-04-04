@@ -61,7 +61,6 @@ function getUsers_TRIGGER() {
 
     sheet_users.getRange( 'A3:C' + index ).setValues( values );
     sheet_users.getRange( 'C3:C' + index ).insertCheckboxes();
-
   }
 }
 
