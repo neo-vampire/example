@@ -74,7 +74,7 @@ function processFiles( files, uniques, processed_count, start ) {
 
     var file = files.next();
 
-    // cобираем емейлы пользователей
+    // cобираем емейлы пользователей файла
     var users = [                                                           // regex меняет Имя и Фамилию местами
       ...file.getEditors().map( e => [ e.getEmail().toLowerCase(), e.getName().replace( /(.*)\s([^\s]*)$/, '$2 $1' ) ] ),
       ...file.getViewers().map( e => [ e.getEmail().toLowerCase(), e.getName().replace( /(.*)\s([^\s]*)$/, '$2 $1' ) ] )
