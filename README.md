@@ -69,7 +69,6 @@ function getUsers_TRIGGER() {
 
 function processFiles( files, uniques, processed_count, start ) {
 
-  // собираем уникальные емейлы пользователей
   while ( files.hasNext() ) {
 
     var file = files.next();
