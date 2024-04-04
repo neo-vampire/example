@@ -53,7 +53,7 @@ function getUsers_TRIGGER() {
     status( STR.msg_users_done ); /*MSG*/
 
     var values = Object.entries( obj.uniques )
-      .sort( ( a, b ) => a[1].localeCompare( b[1], undefined, { sensitivity : 'base' } ) ) // сортим а-я кейс инсенситив по емейлу
+      .sort( ( a, b ) => a[1].localeCompare( b[1], undefined, { sensitivity : 'base' } ) ) // сортим а-я кейс инсенситив по имени
       .filter( e => e[0] ) // фильтруем от пустых Account deleted (удалённые гуглом аккаунты, у которых нет ни имени, ни почты)
       .map( entry => [ entry[1], entry[0], false ] ); // имя, ящик, пустой чекбокс = false
 
